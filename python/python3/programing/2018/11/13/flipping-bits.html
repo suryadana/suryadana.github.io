@@ -11,7 +11,7 @@
 
   <title>
     
-      Welcome to Jekyll! &middot; Suryadana
+      Flipping Bits &middot; Suryadana
     
   </title>
 
@@ -197,11 +197,11 @@
 
     <main class="container">
       <header>
-  <h1 class="post-title">Welcome to Jekyll!</h1>
+  <h1 class="post-title">Flipping Bits</h1>
 </header>
 <div class="content">
   <div class="post-meta">
-  <span class="post-date">21 Feb 2018</span>
+  <span class="post-date">13 Nov 2018</span>
   <span class="post-categories">
     
       &bull;
@@ -211,7 +211,7 @@
       
 
       
-        jekyll
+        python
       
     
       &bull;
@@ -221,27 +221,46 @@
       
 
       
-        update
+        python3
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        programing
       
     
   </span>
 </div>
 
   <div class="post-body">
-    <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+    <p>Bit flipping is an algorithmic manipulation of binary digits (bits). It’s performing logical negation to a single bit, or each of several bits, switching state 0 to 1, and vice versa. Bit flipping one of bit manipulation algorithm which popular except other bit manipulation like AND, OR, XOR, NOT, and bit shifts. It’s usually used on a cryptography algorithm to make obfuscate of the message.</p>
 
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">flipping_bit</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">bits</span> <span class="o">=</span> <span class="s">'{0:{fill}{base}b}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s">'0'</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">'1'</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s">'0'</span> <span class="k">else</span> <span class="s">'0'</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bits</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s">"This is secret message!!!"</span>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+    <span class="c"># Flipping the message</span>
+    <span class="n">flipping_bit_message</span> <span class="o">=</span> <span class="s">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">flipping_bit</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">message</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">flipping_bit_message</span><span class="p">)</span>
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+    <span class="n">message</span> <span class="o">=</span> <span class="s">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">flipping_bit</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">flipping_bit_message</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</code></pre></div></div>
+<p>On the above function <strong>flipping_bit</strong>, you can change the base of bits length to your case.</p>
+
+<p>Yeah, that is flipping bit for play with bits manipulation. Enjoy for reading and thanks for come in, goodnight.</p>
 
     
 
@@ -270,9 +289,9 @@
   *  https://disqus.com/admin/universalcode/#configuration-variables
   */
   var disqus_config = function () {
-    this.page.url = "/jekyll/update/2018/02/21/welcome-to-jekyll.html";
+    this.page.url = "/python/python3/programing/2018/11/13/flipping-bits.html";
     this.page.identifier = "" ||
-                           "/jekyll/update/2018/02/21/welcome-to-jekyll.html";
+                           "/python/python3/programing/2018/11/13/flipping-bits.html";
   }
   function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');
@@ -296,18 +315,18 @@
     
       <li>
         <h3>
-          <a href="/python/python3/programing/2018/11/13/flipping-bits.html">
-            Flipping Bits
-            <small>13 Nov 2018</small>
+          <a href="/python/python3/optimization/2018/05/18/simple-asyncio-python-3.html">
+            Simple ASYNCIO Python 3 
+            <small>18 May 2018</small>
           </a>
         </h3>
       </li>
     
       <li>
         <h3>
-          <a href="/python/python3/optimization/2018/05/18/simple-asyncio-python-3.html">
-            Simple ASYNCIO Python 3 
-            <small>18 May 2018</small>
+          <a href="/jekyll/update/2018/02/21/welcome-to-jekyll.html">
+            Welcome to Jekyll!
+            <small>21 Feb 2018</small>
           </a>
         </h3>
       </li>
